@@ -1,0 +1,102 @@
+﻿@model IEnumerable<BiicycleShopDb.Models.Bicycle>
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *,ReflectionIT.Mvc.Paging
+@{ 
+}
+
+<header class="card-header">
+    <div class="w-100 d-flex flex-row-reverse align-content-center; align-items-center justify-content-between" style="height: 130px; padding: 20px; margin: 0; color: white; font-family: sans-serif; font-size: 20px; background: rgba(0,0,0,0.5);">
+        <div class="d-flex flex-row-reverse align-items-center" style="margin-left: 8px">
+            <div style="height: 80px; width: 80px; border-radius: 50%; background-color: none; margin-left: 9px;">
+                <img style="width: 100%; border-radius: 50%;" src="data:image/jpeg;base64,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" alt="" />
+            </div>
+            @if (User.Identity.Name != null)
+            {
+                <span>@User.Identity.Name</span>
+            }
+            else
+            {
+                <span>UserName</span>
+            }
+        </div>
+        <div class="align-items-start">
+            @using (Html.BeginForm("Logout", "Account"))
+            {
+                <input type="submit" value="Logout" style="color: white; width: 80px; font-family:sans-serif;" class="btn Registr_btn"/>
+            }
+        </div>
+    </div>
+    @* <div class="align-self-center" style="height: 30%;">
+            <h1 class="header_title" style="color: white; font-family: sans-serif; margin: 20px 10px">Welcome to our website!</h1>
+            <div class="header_text" style="font-family: sans-serif; font-size: 16px; margin-left: 10px">We offer a wide range of bicycles for every taste!</div>
+        </div>
+        <div style="height: 70%;" class="w-100 d-flex flex-row justify-content-between align-items-end">
+            <a asp-action="Index" asp-area="" asp-controller="Home" style="color: white; width: 80px; font-family:sans-serif;" class="btn home_btn">Home</a>
+            <a asp-action="index" asp-area="" asp-controller="Admin" style="color: white; width: 80px; font-family: sans-serif; " class="btn admin_btn">Admin</a>
+        </div>
+        <div>
+            <a href="" style="color: white; width: 80px; font-family:sans-serif;" class="btn login_btn">Login</a>
+        </div>*@
+    <div class="d-flex flex-column flex-wrap w-100 h-100">
+        <div style="height: 400px; margin: 10px 20px; margin-top: 100px;">
+            <h1 class="header__title _anim-items anim-no-height">Welcome to our website!</h1>
+            <div class="header__text _anim-items anim-no-height">We offer a wide range of bicycles for every taste!</div>
+        </div>
+        <div class="d-flex flex-row justify-content-between">
+            <div style="height: 70%;" class="w-100">
+                <a asp-action="Index" asp-area="" asp-controller="Home" style="color: white; width: 80px; font-family:sans-serif;" class="btn home_btn">Home</a>
+                <a asp-action="index" asp-area="" asp-controller="Admin" style="color: white; width: 80px; font-family: sans-serif; " class="btn admin_btn">Admin</a>
+            </div>
+            <div>
+                <a href="~/Cart/Index" style="color: white; width: 100px; height: 40px; font-family: sans-serif;" class="btn My_Cart_btn">My cart</a>
+            </div>
+            <a href="~/Account/Login" style="color: white; width: 80px; font-family:sans-serif;" class="btn login_btn">Login</a>
+        </div>
+    </div>
+</header>
+
+<div class="d-flex flex-row flex-wrap align-content-center justify-content-center align-items-center">
+    <h2 class="visible_ __visible__text">@ViewBag.Message_By</h2>
+</div>
+
+<div class="d-flex flex-row flex-wrap align-content-center justify-content-center align-items-center">
+
+    @foreach (var bicicle in Model)
+    {
+        <div class="card m-3 p-3" style="width: 18rem;">
+            <img src="@bicicle.Img_Url" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@bicicle.Title</h5>
+                <div class="card-text d-flex flex-column">
+                    <div class="d-flex flex-row">
+                        <span>Number speeds: </span>
+                        <span>@bicicle.Number_Speeds</span>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <span>Prise: </span>
+                        <span class="text-danger">@bicicle.Prise</span>
+                    </div>
+                </div>
+               @* <a href="~/Home/Buy/@bicicle.BicycleId" class="btn btn-outline-success" style="width: 100%">
+                    Card
+                    <img style="width: 10%;" src="https://pngicon.ru/file/uploads/korzina-1.png" alt="" />
+                </a>*@
+            <div style="width: 100%">
+                @using (Html.BeginForm("AddToCart", "Cart"))
+                {
+                    <input type="hidden" name="BicycleId" value="@bicicle.BicycleId" />
+                    @Html.Hidden("returnUrl", Context.Request.Path.Value);
+                    <input type="submit" style="width: 100%;" value="Add to card" class="btn btn-success" />
+                } 
+                @*<a style="width: 100%;" href="~/Info/Index/@bicicle.BicycleId" class="btn btn-warning">Info</a>*@            </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+<nav aria-label="Bicycle">
+    <div class="d-flex flex-row align-items-center justify-content-center align-content-center">
+        @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+    </div>
+</nav>

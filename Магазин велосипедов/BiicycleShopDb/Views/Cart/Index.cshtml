@@ -1,0 +1,78 @@
+﻿@model BiicycleShopDb.Models.ViewModels.CartIndexViewModel
+@{
+}
+<div class="foolsckrin__img">
+    <div class="img"></div>
+    <div class="d-flex flex-row flex-wrap align-content-center justify-content-center align-items-center">
+        <h2 style="font-family: sans-serif;">My cart</h2>
+    </div>
+    <table class="tbl table fw-normal">
+
+        <thead>
+            <tr>
+                <td></td>
+                <th>Quantity</th>
+                <th>Tile</th>
+                <th>Class</th>
+                <th>Prise</th>
+                <th>Subtotal</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var line in Model.Cart.Lines)
+            {
+
+                <tr>
+                    <td style="width: 30%;"><img src="@line.Bicycle.Img_Url" style="width: 100%;" alt="" /></td>
+                    <td>@line.Quantity</td>
+                    <td>@line.Bicycle.Title</td>
+                    <td>@line.Bicycle.Class</td>
+                    <td>@line.Bicycle.Prise</td>
+                    <td>@(line.Quantity * line.Bicycle.Prise)</td>
+                    <td>
+                        <a href="~/Home/Buy/@line.Bicycle.BicycleId" style="width: 100%" class="btn btn-outline-success">Buy</a>
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                        {
+                            <input type="hidden" name="BicycleId" value="@line.Bicycle.BicycleId" />
+                            @Html.Hidden("returnUrl", Context.Request.Path.Value);
+                            <div class="d-flex flex-column">
+                                <input type="submit" style="width: 100%;" value="Remove" class="btn btn-danger" />
+                                @*<img src="https://w7.pngwing.com/pngs/481/305/png-transparent-shopping-cart-graphy-shopping-basket-text-logo-stock-photography.png" style="width: 10%;" />*@
+                            </div>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total: </td>
+                <td>@Model.Cart.CoomputTotralValue()</td>
+            </tr>
+        </tfoot>
+
+    </table>
+    <div class="d-flex flex-row flex-wrap align-content-center justify-content-center align-items-center">
+
+        @if (@Model.ReturnUrl != null)
+        {
+            <a class="btn home_btn m-2" href="@Model.ReturnUrl" style="color: white; width: 80px; font-family:sans-serif;">Back</a>
+        }
+        else
+        {
+            <a asp-action="Index" asp-area="" asp-controller="Home" style="color: white; width: 80px; font-family:sans-serif;" class="btn home_btn m-2">Back</a>
+        }
+
+
+        @using (Html.BeginForm("ClearCart", "Cart"))
+        {
+            <input type="submit" style="color: white; width: 80px; font-family:sans-serif;" value="Clear" class="btn home_btn m-2" />
+        }
+    </div>
+
+</div>
+

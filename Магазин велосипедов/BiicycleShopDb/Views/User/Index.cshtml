@@ -1,0 +1,35 @@
+﻿@model IEnumerable<BiicycleShopDb.Models.User>
+@{
+}
+
+
+<div style="margin: 0 auto;">
+    <h2 style="margin: 10px">CR Users</h2>
+    <a href="~/User/CreateNew" class="btn btn-primary">Create new</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>UserId</th>
+                <th>UserName</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+            <tr>
+                <td>user.Id</td>
+                <td>@user.UserName</td>
+                <td>@user.Year</td>
+                <td>
+                    <form action="~/User/DeleteUser" method="post">
+                        <input type="hidden" name="Id" value="@user.Id" />
+                        <input type="submit" class="btn btn-danger" value="Delete" />
+                    </form>
+                </td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

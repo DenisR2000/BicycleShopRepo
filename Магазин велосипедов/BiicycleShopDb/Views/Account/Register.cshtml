@@ -1,0 +1,61 @@
+﻿@model BiicycleShopDb.Models.ViewModels.RegisterViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://velohouse.by/images/electro.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://velopnz.ru/wp-content/uploads/resized/a09debb6be9f6229fce0ac74cef62850/xt600d_1920banner.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://vamvelosiped.ru/images/slider/stels_banner.jpg" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="d-flex flex-column flex-wrap align-content-center justify-content-center align-items-center">
+
+    <h1>Register</h1>
+
+    <form asp-action="Register" asp-controller="Account" asp-antiforgery="true" class="d-flex flex-column m-3 p-3">
+        <div asp-validation-summary="ModelOnly"></div> @* ОТображение ошибок *@
+        <div>
+            <div class="d-flex flex-row m-2">
+                @Html.LabelFor(x => x.Email, null, new { @class = "input-group-text" })
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
+            <div class="d-flex flex-row m-2">
+                @Html.LabelFor(x => x.Year, null, new { @class = "input-group-text" })
+                @Html.TextBoxFor(x => x.Year, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Year)
+            </div>
+            <div class="d-flex flex-row m-2">
+                @Html.LabelFor(x => x.Password, null, new { @class = "input-group-text" })
+                @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Password)
+            </div>
+            <div class="d-flex flex-row m-2">
+                @Html.LabelFor(x => x.ConfirmPassword, null, new { @class = "input-group-text" })
+                @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.ConfirmPassword)
+            </div>
+            <input type="submit" value="register" class="btn btn-success" />
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,75 @@
+﻿@model BiicycleShopDb.Models.Bicycle
+@{
+}
+<h3>Create form</h3>
+<div class="d-flex flex-column justify-content-center align-content-center align-items-center m-3">
+    <form method="post">
+        <input type="hidden" name="BicycleId" value="@ViewBag.BicycleId" />
+        <div class="input-group mb-2">
+            @Html.LabelFor(x => x.Title, null, new { @class = "input-group-text" })
+            @Html.TextBoxFor(x => x.Title, null, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.ValidationMessageFor(x => x.Title)
+        </div>
+        <div class="input-group mb-2">
+            @Html.LabelFor(x => x.Class, null, new { @class = "input-group-text" })
+            @Html.TextBoxFor(x => x.Class, null, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.ValidationMessageFor(x => x.Class)
+        </div>
+        <div class="input-group mb-2">
+            @Html.LabelFor(x => x.Wheel_Diameter, null, new { @class = "input-group-text" })
+            @Html.TextBoxFor(x => x.Wheel_Diameter, null, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.ValidationMessageFor(x => x.Wheel_Diameter)
+        </div>
+        <div class="input-group mb-2">
+            @Html.LabelFor(x => x.Clolor, null, new { @class = "input-group-text" })
+            @Html.TextBoxFor(x => x.Clolor, null, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.ValidationMessageFor(x => x.Clolor)
+        </div>
+        <div class="input-group mb-2">
+            @Html.LabelFor(x => x.Number_Speeds, null, new { @class = "input-group-text" })
+            @Html.TextBoxFor(x => x.Number_Speeds, null, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.ValidationMessageFor(x => x.Number_Speeds)
+        </div>
+        <div class="input-group mb-2">
+            @Html.LabelFor(x => x.Frame, null, new { @class = "input-group-text" })
+            @Html.TextBoxFor(x => x.Frame, null, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.ValidationMessageFor(x => x.Frame)
+        </div>
+        <div class="input-group mb-2">
+            @Html.LabelFor(x => x.Frame_Material, null, new { @class = "input-group-text" })
+            @Html.TextBoxFor(x => x.Frame_Material, null, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.ValidationMessageFor(x => x.Frame_Material)
+        </div>
+        <div class="input-group mb-2">
+            @Html.LabelFor(x => x.Img_Url, null, new { @class = "input-group-text" })
+            @Html.TextBoxFor(x => x.Img_Url, null, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.ValidationMessageFor(x => x.Img_Url)
+        </div>
+        <div class="input-group mb-2">
+            @Html.LabelFor(x => x.Prise, null, new { @class = "input-group-text" })
+            @Html.TextBoxFor(x => x.Prise, null, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.ValidationMessageFor(x => x.Prise)
+        </div>
+        <div class="input-group mb-2">
+            <input class="btn btn-primary" type="submit" value="Create" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,69 @@
+﻿@model BiicycleShopDb.Models.Bicycle
+@{
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<div class="d-flex flex-row flex-wrap align-content-center justify-content-center align-items-center">
+    <div class="d-flex flex-column m-3" style="width: 100%">
+        <img style="width: 50%;" src="@Model.Img_Url" alt="" />
+        <div class="accordion" style="width: auto;" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Characteristic
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+
+                        <table class="table fw-normal" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>Ttle</th>
+                                    <th>Class</th>
+                                    <th>Color</th>
+                                    <th>Wheel diameter</th>
+                                    <th>Frame</th>
+                                    <th>Frame material</th>
+                                    <th>Number spees</th>
+                                    <th>Prise</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        @Model.Title
+                                    </td>
+                                    <td>
+                                        @Model.Class
+                                    </td>
+                                    <td>
+                                        @Model.Clolor
+                                    </td>
+                                    <td>
+                                        @Model.Wheel_Diameter
+                                    </td>
+                                    <td>
+                                        @Model.Frame
+                                    </td>
+                                    <td>
+                                        @Model.Frame_Material
+                                    </td>
+                                    <td>
+                                        @Model.Number_Speeds
+                                    </td>
+                                    <td>
+                                        @Model.Prise
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    

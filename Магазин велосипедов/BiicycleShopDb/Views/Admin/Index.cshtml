@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BiicycleShopDb.Models.Bicycle>
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *,ReflectionIT.Mvc.Paging
+@{
+}
+
+<div class="d-flex flex-row align-items-center justify-content-center align-content-center">
+    <a style="color: white; width: 150px;" class="btn btn-primary" href="~/Admin/Create">Create new</a>
+</div>
+
+<div class="d-flex flex-column align-items-center">
+    <table class="table w-100 fw-normal">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Class</th>
+                <th>Wheel_Diameter</th>
+                <th>Clolor</th>
+                <th>Number_Speeds</th>
+                <th>Frame</th>
+                <th>Frame_Material</th>
+                <th>Prise</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bicycle in Model)
+            {
+                <tr>
+                    <td>@bicycle.Title</td>
+                    <td>@bicycle.Class</td>
+                    <td>@bicycle.Wheel_Diameter</td>
+                    <td>@bicycle.Clolor</td>
+                    <td>@bicycle.Number_Speeds</td>
+                    <td>@bicycle.Frame</td>
+                    <td>@bicycle.Frame_Material</td>
+                    <td>@bicycle.Prise</td>
+                    <td>
+                        <a href="~/Admin/Create/@bicycle.BicycleId" class="btn btn-warning">Edit</a>
+                    </td>
+                    <td>
+                        <form action="~/Admin/Remove" method="post">
+                            <input type="hidden" name="BicycleId" value="@bicycle.BicycleId" />
+                            <input type="submit" value="Remove" class="btn btn-danger" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex flex-row align-items-center justify-content-center align-content-center">
+    <a href="~/User/Index/" class="btn btn-warning">List users</a>
+</div>
+
+<div class="d-flex flex-row align-items-center justify-content-center align-content-center">
+    <p class="fs-4">Page: @ViewBag.Page</p>
+</div>
+
+
+<nav aria-label="Bicycle">
+    <div class="d-flex flex-row align-items-center justify-content-center align-content-center">
+        @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+    </div>
+</nav>

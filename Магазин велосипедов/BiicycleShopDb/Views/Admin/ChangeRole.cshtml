@@ -1,0 +1,32 @@
+﻿@model IEnumerable<BiicycleShopDb.Models.User>
+@{
+}
+
+<h2>Change role</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <td>UserId</td>
+            <td>UserName</td>
+            <td>Role</td>
+            <td>Admin role</td>
+        </tr>
+    </thead>
+    <tbody>
+       @* @foreach(var user in Model)
+        {
+        <tr>
+            <td> @user.UserId</td>
+            <td> @user.Email</td>
+            <td> @user.RoleId</td>
+            <td>
+                <form action="~/Admin/RoleAdmin" method="post">
+                    <input type="hidden" name="UserId" value="@user.UserId"/>
+                    <input type="submit" value="Role admin" class="btn btn-primary"/>
+                </form>
+            </td>
+
+        </tr>
+        }*@
+    </tbody>
+</table>
